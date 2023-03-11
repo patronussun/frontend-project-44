@@ -19,7 +19,7 @@ const generateProgression = () => {
 const skipNumber = (skipIndex, progression) => {
   const copy = [...progression];
   copy[skipIndex] = '..';
-  return copy;
+  return copy.join(' ');
 };
 
 export { generateProgression, skipNumber };
