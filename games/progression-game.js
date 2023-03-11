@@ -4,27 +4,12 @@ import {
   checkIsWin,
   askQuestion,
   isCorrect,
-  getRandomInt,
-} from './index.js';
+} from '../src/index.js';
 
-const generateProgression = () => {
-  const firstNumber = generateRandomNumber(20);
-  const step = getRandomInt(1, 10);
-  const progressionLength = getRandomInt(5, 11);
-  let result = [firstNumber];
-
-  for (let i = 1; i < progressionLength; i += 1) {
-    const nextNumber = result[i - 1] + step;
-    result = [...result, nextNumber];
-  }
-  return result;
-};
-
-const skipNumber = (skipIndex, progression) => {
-  const copy = [...progression];
-  copy[skipIndex] = '..';
-  return copy;
-};
+import {
+  generateProgression,
+  skipNumber,
+} from '../src/progressions.js';
 
 const progressionGame = (userName) => {
   askQuestion('Answer "yes" if given number is prime. Otherwise answer "no".');

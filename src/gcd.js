@@ -1,10 +1,4 @@
-import {
-  generateRandomNumber,
-  getAnswer,
-  checkIsWin,
-  askQuestion,
-  isCorrect,
-} from './index.js';
+import { generateRandomNumber } from './index.js';
 
 const generateNumbers = () => {
   const firstNumber = generateRandomNumber(100);
@@ -33,19 +27,4 @@ const calculateResult = (numbers) => {
   return 1;
 };
 
-const gcdGame = (userName) => {
-  askQuestion('Find the greatest common divisor of given numbers.');
-  let count = 0;
-
-  while (count < 3 && count !== false) {
-    const numbers = generateNumbers();
-    console.log(`Question: ${numbers}`);
-
-    const correctAnswer = calculateResult(numbers);
-    const answer = Number(getAnswer('Your answer: '));
-    count = isCorrect(correctAnswer, answer, count, userName);
-  }
-  checkIsWin(count, userName);
-};
-
-export default gcdGame;
+export { generateNumbers, calculateResult };

@@ -1,8 +1,8 @@
 import {
   generateRandomNumber, getAnswer, checkIsWin, askQuestion, isCorrect,
-} from './index.js';
+} from '../src/index.js';
 
-const checkIsEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
+import checkIsEven from '../src/even.js';
 
 const evenGame = (userName) => {
   askQuestion('Answer "yes" if the number is even, otherwise answer "no".');

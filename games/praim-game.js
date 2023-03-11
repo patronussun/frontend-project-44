@@ -4,20 +4,9 @@ import {
   askQuestion,
   isCorrect,
   getRandomInt,
-} from './index.js';
+} from '../src/index.js';
 
-const isPrime = (number) => {
-  if (number === 1) {
-    return 'yes';
-  }
-
-  for (let i = 2; i < number; i += 1) {
-    if (number % i === 0) {
-      return 'no';
-    }
-  }
-  return 'yes';
-};
+import isPrime from '../src/prime.js';
 
 const primeGame = (userName) => {
   askQuestion('Find the greatest common divisor of given numbers.');
