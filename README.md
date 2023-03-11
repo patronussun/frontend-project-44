@@ -3,12 +3,17 @@
 
 <a href="https://codeclimate.com/github/patronussun/frontend-project-44/maintainability"><img src="https://api.codeclimate.com/v1/badges/e0369e6baae9783d9f66/maintainability" /></a>
 
-<a href="https://asciinema.org/a/3kGPv5OCxRYdtAXUflOYeggvG" target="_blank"><img src="https://asciinema.org/a/3kGPv5OCxRYdtAXUflOYeggvG.svg" /></a>
+Игра: "Проверка на чётность"
+<a href="https://asciinema.org/a/QHgpi7VD3eSro6q0l2JRrVFCn" target="_blank"><img src="https://asciinema.org/a/QHgpi7VD3eSro6q0l2JRrVFCn.svg" /></a>
 
-<a href="https://asciinema.org/a/n0ZVO2ORLava01nmrahwGs6FA" target="_blank"><img src="https://asciinema.org/a/n0ZVO2ORLava01nmrahwGs6FA.svg" /></a>
+Игра: "Калькулятор"
+<a href="https://asciinema.org/a/4nBziXUjlE6MJ3zWs60ChlAwt" target="_blank"><img src="https://asciinema.org/a/4nBziXUjlE6MJ3zWs60ChlAwt.svg" /></a>
 
-<a href="https://asciinema.org/a/D2j5o4U6eFhAwzwaP1hKdPYWh" target="_blank"><img src="https://asciinema.org/a/D2j5o4U6eFhAwzwaP1hKdPYWh.svg" /></a>
+Игра: "НОД"
+<a href="https://asciinema.org/a/yxh2ER8wFDCNqNKPhtKfVTizZ" target="_blank"><img src="https://asciinema.org/a/yxh2ER8wFDCNqNKPhtKfVTizZ.svg" /></a>
 
-<a href="https://asciinema.org/a/Ltv9QTKNWZy4bjB4Y3s6WJ3lD" target="_blank"><img src="https://asciinema.org/a/Ltv9QTKNWZy4bjB4Y3s6WJ3lD.svg" /></a>
+Игра "Арифметическая прогрессия"
+<a href="https://asciinema.org/a/H8PIXyQ1s9D5mke3HEtTaBQwJ" target="_blank"><img src="https://asciinema.org/a/H8PIXyQ1s9D5mke3HEtTaBQwJ.svg" /></a>
 
-<a href="https://asciinema.org/a/WlznOSC3YrU89WVuNnkJdKxZg" target="_blank"><img src="https://asciinema.org/a/WlznOSC3YrU89WVuNnkJdKxZg.svg" /></a>
+Игра "Простое ли число?"
+<a href="https://asciinema.org/a/BgUaFHnyR9N3jwUKneY0rfpZ5" target="_blank"><img src="https://asciinema.org/a/BgUaFHnyR9N3jwUKneY0rfpZ5.svg" /></a>
