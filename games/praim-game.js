@@ -9,7 +9,7 @@ import {
 import isPrime from '../src/prime.js';
 
 const primeGame = (userName) => {
-  askQuestion('Find the greatest common divisor of given numbers.');
+  askQuestion('Answer "yes" if given number is prime. Otherwise answer "no".');
   let count = 0;
 
   while (count < 3 && count !== false) {

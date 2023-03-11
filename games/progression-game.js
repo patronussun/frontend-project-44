@@ -12,7 +12,7 @@ import {
 } from '../src/progressions.js';
 
 const progressionGame = (userName) => {
-  askQuestion('Answer "yes" if given number is prime. Otherwise answer "no".');
+  askQuestion('What number is missing in the progression?');
   let count = 0;
 
   while (count < 3 && count !== false) {
