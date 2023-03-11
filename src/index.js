@@ -32,6 +32,12 @@ const isCorrect = (correctAnswer, answer, count, userName) => {
   return false;
 };
 
+const getRandomInt = (min, max) => {
+  const minimum = Math.ceil(min);
+  const maximum = Math.floor(max);
+  return Math.floor(Math.random() * (maximum - minimum)) + minimum;
+};
+
 export {
-  generateRandomNumber, getAnswer, checkIsWin, askQuestion, isCorrect,
+  generateRandomNumber, getAnswer, checkIsWin, askQuestion, isCorrect, getRandomInt,
 };

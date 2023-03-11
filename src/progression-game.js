@@ -4,13 +4,8 @@ import {
   checkIsWin,
   askQuestion,
   isCorrect,
+  getRandomInt,
 } from './index.js';
-
-function getRandomInt(min, max) {
-  const minimum = Math.ceil(min);
-  const maximum = Math.floor(max);
-  return Math.floor(Math.random() * (maximum - minimum)) + minimum;
-}
 
 const generateProgression = () => {
   const firstNumber = generateRandomNumber(20);
@@ -32,7 +27,7 @@ const skipNumber = (skipIndex, progression) => {
 };
 
 const progressionGame = (userName) => {
-  askQuestion('Find the greatest common divisor of given numbers.');
+  askQuestion('Answer "yes" if given number is prime. Otherwise answer "no".');
   let count = 0;
 
   while (count < 3 && count !== false) {
