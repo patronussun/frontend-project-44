@@ -13,7 +13,7 @@ const gcdGame = (userName) => {
 
   while (count < 3 && count !== false) {
     const numbers = generateNumbers();
-    console.log(`Question: ${numbers}`);
+    console.log(`Question: ${numbers[0]} ${numbers[1]}`);
 
     const correctAnswer = calculateResult(numbers);
     const answer = Number(getAnswer('Your answer: '));
