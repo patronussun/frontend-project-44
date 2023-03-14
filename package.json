@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
-  "description": "[![Actions Status](https://github.com/patronussun/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/patronussun/frontend-project-44/actions)",
+  "description": "Mind games",
   "bin": {
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
@@ -15,7 +15,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Maria Musalitina",
   "license": "ISC",
   "dependencies": {
     "readline-sync": "^1.4.10"
