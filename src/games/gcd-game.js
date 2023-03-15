@@ -1,13 +1,19 @@
+import readlineSync from 'readline-sync';
+
 import {
-  getAnswer,
   checkIsWin,
   askQuestion,
   isCorrect,
-} from '../src/index.js';
+} from '../index.js';
 
-import { generateNumbers, calculateResult } from '../src/gcd.js';
+import { generateNumbers, calculateResult } from '../gcd.js';
 
-const gcdGame = (userName) => {
+import greetingUser from '../cli.js';
+
+console.log('Welcome to the Brain Games!');
+const userName = greetingUser();
+
+const gcdGame = () => {
   askQuestion('Find the greatest common divisor of given numbers.');
   let count = 0;
 
@@ -16,7 +22,7 @@ const gcdGame = (userName) => {
     console.log(`Question: ${numbers[0]} ${numbers[1]}`);
 
     const correctAnswer = calculateResult(numbers);
-    const answer = Number(getAnswer('Your answer: '));
+    const answer = Number(readlineSync.question('Your answer: '));
     count = isCorrect(correctAnswer, answer, count, userName);
   }
   checkIsWin(count, userName);

@@ -4,11 +4,16 @@ import {
   askQuestion,
   isCorrect,
   getRandomInt,
-} from '../src/index.js';
+} from '../index.js';
 
-import isPrime from '../src/prime.js';
+import isPrime from '../prime.js';
 
-const primeGame = (userName) => {
+import greetingUser from '../cli.js';
+
+console.log('Welcome to the Brain Games!');
+const userName = greetingUser();
+
+const primeGame = () => {
   askQuestion('Answer "yes" if given number is prime. Otherwise answer "no".');
   let count = 0;
 

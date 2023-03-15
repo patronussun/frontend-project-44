@@ -1,15 +1,6 @@
-import readlineSync from 'readline-sync';
-
-const getAnswer = (text) => {
-  const answer = readlineSync.question(text);
-  return answer;
-};
-
 const incorrectAnswer = (answer, correctAnswer, userName) => {
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. \nLet's try again, ${userName}!`);
 };
-
-const generateRandomNumber = (max = 100) => Math.floor(Math.random() * max);
 
 const checkIsWin = (count, userName) => {
   if (count === 3) {
@@ -39,5 +30,5 @@ const getRandomInt = (min, max) => {
 };
 
 export {
-  generateRandomNumber, getAnswer, checkIsWin, askQuestion, isCorrect, getRandomInt,
+  checkIsWin, askQuestion, isCorrect, getRandomInt,
 };

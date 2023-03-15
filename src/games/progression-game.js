@@ -1,17 +1,23 @@
+import readlineSync from 'readline-sync';
+
 import {
-  generateRandomNumber,
-  getAnswer,
   checkIsWin,
   askQuestion,
   isCorrect,
-} from '../src/index.js';
+} from '../index.js';
 
 import {
   generateProgression,
   skipNumber,
-} from '../src/progressions.js';
+} from '../progressions.js';
 
-const progressionGame = (userName) => {
+import generateRandomNumber from '../utils.js';
+import greetingUser from '../cli.js';
+
+console.log('Welcome to the Brain Games!');
+const userName = greetingUser();
+
+const progressionGame = () => {
   askQuestion('What number is missing in the progression?');
   let count = 0;
 
@@ -23,7 +29,7 @@ const progressionGame = (userName) => {
     const skipped = skipNumber(skipIndex, progression);
     console.log(`Question: ${skipped}`);
 
-    const answer = Number(getAnswer('Your answer: '));
+    const answer = Number(readlineSync.question('Your answer: '));
     count = isCorrect(correctAnswer, answer, count, userName);
   }
   checkIsWin(count, userName);

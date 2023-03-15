@@ -1,16 +1,22 @@
+import readlineSync from 'readline-sync';
+
 import {
-  getAnswer,
   checkIsWin,
   askQuestion,
   isCorrect,
-} from '../src/index.js';
+} from '../index.js';
 
 import {
   generateExpression,
   calculateResult,
-} from '../src/calculations.js';
+} from '../calculations.js';
 
-const calcGame = (userName) => {
+import greetingUser from '../cli.js';
+
+console.log('Welcome to the Brain Games!');
+const userName = greetingUser();
+
+const calcGame = () => {
   askQuestion('What is the result of the expression?');
   let count = 0;
 
@@ -19,7 +25,7 @@ const calcGame = (userName) => {
     console.log(`Question: ${expression}`);
 
     const correctAnswer = calculateResult(expression);
-    const answer = Number(getAnswer('Your answer: '));
+    const answer = Number(readlineSync.question('Your answer: '));
     count = isCorrect(correctAnswer, answer, count, userName);
   }
   checkIsWin(count, userName);
