@@ -11,8 +11,8 @@ import getRandomInt from '../utils.js';
 const DEFAULT_RESULT = 1;
 
 const generateNumbers = () => {
-  const firstNumber = getRandomInt(100);
-  const secondNumber = getRandomInt(100);
+  const firstNumber = getRandomInt(1, 100);
+  const secondNumber = getRandomInt(1, 100);
   return [firstNumber, secondNumber];
 };
 
