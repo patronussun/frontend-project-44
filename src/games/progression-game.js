@@ -2,28 +2,41 @@ import readlineSync from 'readline-sync';
 
 import {
   checkIsWin,
-  askQuestion,
   isCorrect,
 } from '../index.js';
 
-import {
-  generateProgression,
-  skipNumber,
-} from '../progressions.js';
-
-import generateRandomNumber from '../utils.js';
+import getRandomInt from '../utils.js';
 import greetingUser from '../cli.js';
+
+const generateProgression = () => {
+  const firstNumber = getRandomInt(20);
+  const step = getRandomInt(1, 10);
+  const progressionLength = getRandomInt(5, 11);
+  let result = [firstNumber];
+
+  for (let i = 1; i < progressionLength; i += 1) {
+    const nextNumber = result[i - 1] + step;
+    result = [...result, nextNumber];
+  }
+  return result;
+};
+
+const skipNumber = (skipIndex, progression) => {
+  const copy = [...progression];
+  copy[skipIndex] = '..';
+  return copy.join(' ');
+};
 
 console.log('Welcome to the Brain Games!');
 const userName = greetingUser();
 
 const progressionGame = () => {
-  askQuestion('What number is missing in the progression?');
+  console.log('What number is missing in the progression?');
   let count = 0;
 
   while (count < 3 && count !== false) {
     const progression = generateProgression();
-    const skipIndex = generateRandomNumber(progression.length);
+    const skipIndex = getRandomInt(progression.length);
     const correctAnswer = progression[skipIndex];
 
     const skipped = skipNumber(skipIndex, progression);

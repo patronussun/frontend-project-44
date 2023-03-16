@@ -1,20 +1,40 @@
 import readlineSync from 'readline-sync';
+import greetingUser from '../cli.js';
 
 import {
   checkIsWin,
-  askQuestion,
   isCorrect,
 } from '../index.js';
 
-import { generateNumbers, calculateResult } from '../gcd.js';
+import getRandomInt from '../utils.js';
 
-import greetingUser from '../cli.js';
+const DEFAULT_RESULT = 1;
+
+const generateNumbers = () => {
+  const firstNumber = getRandomInt(100);
+  const secondNumber = getRandomInt(100);
+  return [firstNumber, secondNumber];
+};
+
+const calculateResult = ([first, second]) => {
+  const isFirstBigger = first > second;
+  const smallNumber = isFirstBigger ? second : first;
+  const bigNumber = isFirstBigger ? first : second;
+
+  for (let i = smallNumber; i > 0; i -= 1) {
+    if ((bigNumber % i === 0) && (smallNumber % i === 0)) {
+      return i;
+    }
+  }
+
+  return DEFAULT_RESULT;
+};
 
 console.log('Welcome to the Brain Games!');
 const userName = greetingUser();
 
 const gcdGame = () => {
-  askQuestion('Find the greatest common divisor of given numbers.');
+  console.log('Find the greatest common divisor of given numbers.');
   let count = 0;
 
   while (count < 3 && count !== false) {
