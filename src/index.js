@@ -1,5 +1,9 @@
+import readlineSync from 'readline-sync';
+import greetingUser from './cli.js';
+
 const checkIsWin = (count, userName) => {
-  if (count === 3) {
+  const countWins = 3;
+  if (count === countWins) {
     console.log(`Congratulations, ${userName}!`);
   }
 };
@@ -15,6 +19,22 @@ const isCorrect = (correctAnswer, answer, count, userName) => {
   return false;
 };
 
-export {
-  checkIsWin, isCorrect,
+const runGame = (gameDescription, generateQuestion, getResult) => {
+  console.log('Welcome to the Brain Games!');
+  const userName = greetingUser();
+  console.log(gameDescription);
+  let countRightAnswers = 0;
+
+  while (countRightAnswers < 3 && countRightAnswers !== false) {
+    const question = generateQuestion();
+    console.log(`Question: ${question}`);
+    const answer = readlineSync.question('Your answer: ');
+
+    const correctAnswer = getResult(question);
+
+    countRightAnswers = isCorrect(correctAnswer, answer, countRightAnswers, userName);
+  }
+  checkIsWin(countRightAnswers, userName);
 };
+
+export default runGame;

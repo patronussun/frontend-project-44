@@ -30,9 +30,6 @@ const calculateResult = ([first, second]) => {
   return DEFAULT_RESULT;
 };
 
-console.log('Welcome to the Brain Games!');
-const userName = greetingUser();
-
 const gcdGame = () => {
   console.log('Find the greatest common divisor of given numbers.');
   let count = 0;
