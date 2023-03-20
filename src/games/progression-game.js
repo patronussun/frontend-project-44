@@ -1,12 +1,5 @@
-import readlineSync from 'readline-sync';
-
-import {
-  checkIsWin,
-  isCorrect,
-} from '../index.js';
-
+import runGame from '../index.js';
 import getRandomInt from '../utils.js';
-import greetingUser from '../cli.js';
 
 const generateProgression = () => {
   const firstNumber = getRandomInt(20);
@@ -18,34 +11,29 @@ const generateProgression = () => {
     const nextNumber = result[i - 1] + step;
     result = [...result, nextNumber];
   }
+
   return result;
 };
 
-const skipNumber = (skipIndex, progression) => {
+const skipNumberInProgression = (progression, skipIndex) => {
   const copy = [...progression];
   copy[skipIndex] = '..';
   return copy.join(' ');
 };
 
-console.log('Welcome to the Brain Games!');
-const userName = greetingUser();
+const setupGame = () => {
+  const progression = generateProgression();
+  const skipIndex = getRandomInt(progression.length);
+
+  const correctAnswer = progression[skipIndex].toString();
+  const question = skipNumberInProgression(progression, skipIndex);
+
+  return [question, correctAnswer];
+};
 
 const progressionGame = () => {
-  console.log('What number is missing in the progression?');
-  let count = 0;
-
-  while (count < 3 && count !== false) {
-    const progression = generateProgression();
-    const skipIndex = getRandomInt(progression.length);
-    const correctAnswer = progression[skipIndex];
-
-    const skipped = skipNumber(skipIndex, progression);
-    console.log(`Question: ${skipped}`);
-
-    const answer = Number(readlineSync.question('Your answer: '));
-    count = isCorrect(correctAnswer, answer, count, userName);
-  }
-  checkIsWin(count, userName);
+  const gameDescription = 'What number is missing in the progression?';
+  runGame(gameDescription, setupGame);
 };
 
 export default progressionGame;
