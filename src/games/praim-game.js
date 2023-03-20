@@ -1,15 +1,5 @@
-import readlineSync from 'readline-sync';
-
-import {
-  checkIsWin,
-  isCorrect,
-} from '../index.js';
-
+import runGame from '../index.js';
 import getRandomInt from '../utils.js';
-import greetingUser from '../cli.js';
-
-console.log('Welcome to the Brain Games!');
-const userName = greetingUser();
 
 const isPrime = (number) => {
   if (number === 1) {
@@ -24,20 +14,11 @@ const isPrime = (number) => {
   return 'yes';
 };
 
+const getRandomNumber = () => getRandomInt(1, 100);
+
 const primeGame = () => {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  let count = 0;
-
-  while (count < 3 && count !== false) {
-    const number = getRandomInt(1, 100);
-    const correctAnswer = isPrime(number);
-
-    console.log(`Question: ${number}`);
-
-    const answer = readlineSync.question('Your answer: ');
-    count = isCorrect(correctAnswer, answer, count, userName);
-  }
-  checkIsWin(count, userName);
+  const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  runGame(gameDescription, getRandomNumber, isPrime);
 };
 
 export default primeGame;
