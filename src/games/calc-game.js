@@ -3,7 +3,7 @@ import getRandomInt from '../utils.js';
 
 const chooseMaths = () => {
   const maths = ['+', '-', '*'];
-  const indexRandomMath = getRandomInt(maths.length - 1);
+  const indexRandomMath = getRandomInt(maths.length);
   return maths[indexRandomMath];
 };
 
@@ -17,8 +17,8 @@ const generateExpression = () => {
 
 const calculateResult = (expression) => {
   const [firstNumber, choosenMath, secondNumber] = expression.split(' ');
-
   let result;
+
   if (choosenMath === '+') {
     result = Number(firstNumber) + Number(secondNumber);
   }
@@ -31,9 +31,16 @@ const calculateResult = (expression) => {
   return result.toString();
 };
 
+const setupGame = () => {
+  const question = generateExpression();
+  const correctAnswer = calculateResult(question);
+
+  return [question, correctAnswer];
+};
+
 const calcGame = () => {
   const gameDescription = 'What is the result of the expression?';
-  runGame(gameDescription, generateExpression, calculateResult);
+  runGame(gameDescription, setupGame);
 };
 
 export default calcGame;

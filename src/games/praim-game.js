@@ -14,11 +14,16 @@ const isPrime = (number) => {
   return 'yes';
 };
 
-const getRandomNumber = () => getRandomInt(1, 100);
+const setupGame = () => {
+  const question = getRandomInt(1, 100);
+  const correctAnswer = isPrime(question);
+
+  return [question, correctAnswer];
+};
 
 const primeGame = () => {
   const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  runGame(gameDescription, getRandomNumber, isPrime);
+  runGame(gameDescription, setupGame);
 };
 
 export default primeGame;

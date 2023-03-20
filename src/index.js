@@ -19,18 +19,16 @@ const isCorrect = (correctAnswer, answer, count, userName) => {
   return false;
 };
 
-const runGame = (gameDescription, generateQuestion, getResult) => {
+const runGame = (gameDescription, setupGame) => {
   console.log('Welcome to the Brain Games!');
   const userName = greetingUser();
   console.log(gameDescription);
   let countRightAnswers = 0;
 
   while (countRightAnswers < 3 && countRightAnswers !== false) {
-    const question = generateQuestion();
+    const [question, correctAnswer] = setupGame();
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-
-    const correctAnswer = getResult(question);
 
     countRightAnswers = isCorrect(correctAnswer, answer, countRightAnswers, userName);
   }
