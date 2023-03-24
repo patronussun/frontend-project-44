@@ -1,32 +1,24 @@
 import runGame from '../index.js';
 import getRandomInt from '../utils.js';
 
-const DEFAULT_RESULT = 1;
+const getGCD = (first, second) => {
+  const isFirstBigger = first > second;
+  const smallNumber = isFirstBigger ? second : first;
+  const bigNumber = isFirstBigger ? first : second;
+  const rem = bigNumber % smallNumber;
 
-const generateNumbers = () => {
-  const firstNumber = getRandomInt(1, 100);
-  const secondNumber = getRandomInt(1, 100);
-  return [firstNumber, secondNumber].join(' ');
-};
-
-const calculateResult = (numbers) => {
-  const [first, second] = numbers.split(' ');
-  const isFirstBigger = Number(first) > Number(second);
-  const smallNumber = isFirstBigger ? Number(second) : Number(first);
-  const bigNumber = isFirstBigger ? Number(first) : Number(second);
-
-  for (let i = smallNumber; i > 0; i -= 1) {
-    if ((bigNumber % i === 0) && (smallNumber % i === 0)) {
-      return i;
-    }
+  if (rem % smallNumber !== 0) {
+    return getGCD(rem, smallNumber);
   }
-
-  return DEFAULT_RESULT;
+  return smallNumber;
 };
 
 const setupGame = () => {
-  const question = generateNumbers();
-  const correctAnswer = calculateResult(question).toString();
+  const firstNumber = getRandomInt(1, 100);
+  const secondNumber = getRandomInt(1, 100);
+  const question = [firstNumber, secondNumber].join(' ');
+
+  const correctAnswer = getGCD(firstNumber, secondNumber).toString();
 
   return [question, correctAnswer];
 };
