@@ -1,14 +1,10 @@
 import runGame from '../index.js';
 import getRandomInt from '../utils.js';
 
-const generateProgression = () => {
-  const firstNumber = getRandomInt(20);
-  const step = getRandomInt(1, 10);
-  const progressionLength = getRandomInt(5, 11);
-  let result = [firstNumber];
-
-  for (let i = 1; i < progressionLength; i += 1) {
-    const nextNumber = result[i - 1] + step;
+const generateProgression = (firstNumber, step, progressionLength) => {
+  let result = [];
+  for (let i = 0; i < progressionLength; i += 1) {
+    const nextNumber = firstNumber + i * step;
     result = [...result, nextNumber];
   }
 
@@ -22,7 +18,11 @@ const skipNumberInProgression = (progression, skipIndex) => {
 };
 
 const setupGame = () => {
-  const progression = generateProgression();
+  const firstNumber = getRandomInt(20);
+  const step = getRandomInt(1, 10);
+  const progressionLength = getRandomInt(5, 11);
+
+  const progression = generateProgression(firstNumber, step, progressionLength);
   const skipIndex = getRandomInt(progression.length);
 
   const correctAnswer = progression[skipIndex].toString();
