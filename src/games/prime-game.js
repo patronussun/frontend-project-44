@@ -3,20 +3,21 @@ import getRandomInt from '../utils.js';
 
 const isPrime = (number) => {
   if (number === 1) {
-    return 'yes';
+    return true;
   }
 
-  for (let i = 2; i < number; i += 1) {
+  for (let i = 2; i <= Math.sqrt(number); i += 1) {
     if (number % i === 0) {
-      return 'no';
+      return false;
     }
   }
-  return 'yes';
+
+  return true;
 };
 
 const setupGame = () => {
   const question = getRandomInt(1, 100);
-  const correctAnswer = isPrime(question);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
   return [question, correctAnswer];
 };
