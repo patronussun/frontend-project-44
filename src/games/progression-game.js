@@ -31,9 +31,7 @@ const setupGame = () => {
   return [question, correctAnswer];
 };
 
-const progressionGame = () => {
+export default () => {
   const gameDescription = 'What number is missing in the progression?';
   runGame(gameDescription, setupGame);
 };
-
-export default progressionGame;

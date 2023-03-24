@@ -28,9 +28,7 @@ const setupGame = () => {
   return [question, correctAnswer.toString()];
 };
 
-const calcGame = () => {
+export default () => {
   const gameDescription = 'What is the result of the expression?';
   runGame(gameDescription, setupGame);
 };
-
-export default calcGame;
