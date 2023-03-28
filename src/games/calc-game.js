@@ -23,9 +23,9 @@ const setupGame = () => {
   const secondNumber = getRandomInt(10);
   const question = `${firstNumber} ${randomMath} ${secondNumber}`;
 
-  const correctAnswer = calculateResult(firstNumber, randomMath, secondNumber);
+  const correctAnswer = calculateResult(firstNumber, randomMath, secondNumber).toString();
 
-  return [question, correctAnswer.toString()];
+  return [question, correctAnswer];
 };
 
 export default () => {

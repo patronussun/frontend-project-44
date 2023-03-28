@@ -11,12 +11,6 @@ const generateProgression = (firstNumber, step, progressionLength) => {
   return result;
 };
 
-const skipNumberInProgression = (progression, skipIndex) => {
-  const copy = [...progression];
-  copy[skipIndex] = '..';
-  return copy.join(' ');
-};
-
 const setupGame = () => {
   const firstNumber = getRandomInt(20);
   const step = getRandomInt(1, 10);
@@ -26,7 +20,8 @@ const setupGame = () => {
   const skipIndex = getRandomInt(progression.length);
 
   const correctAnswer = progression[skipIndex].toString();
-  const question = skipNumberInProgression(progression, skipIndex);
+  progression[skipIndex] = '..';
+  const question = progression.join(' ');
 
   return [question, correctAnswer];
 };
